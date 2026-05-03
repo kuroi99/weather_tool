@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>検索結果</title>
+</head>
+<body>
+    <h1>到着時刻の天気</h1>
+
+    <p>指定時刻：{{ arrival_time }}（JST）</p>
+
+    {% if result %}
+    <h2>{{ result.city }}</h2>
+    <p>予報時刻：{{ result.time }}（JST）</p>
+    <p>天気：{{ result.description }}</p>
+    <p>気温：{{ result.temp }}℃</p>
+    {% if result.is_rain %}
+    <p>⚠️ 雨の予報があります！傘を忘れずに！</p>
+    {% endif %}
+    {% else %}
+    <p>都市が見つかりませんでした。</p>
+    {% endif %}
+
+    <a href="/">トップに戻る</a>
+
+</body>
+</html>
